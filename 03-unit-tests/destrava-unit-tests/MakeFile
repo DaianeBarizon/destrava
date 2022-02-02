@@ -1,0 +1,8 @@
+
+EXEC = main
+EXTENSION = .js
+ROOT_DIR:=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+OUTFILE = ${ROOT_DIR}.out
+
+all:
+	@./${EXEC}${EXTENSION} > ${OUTFILE}
