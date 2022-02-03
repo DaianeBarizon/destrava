@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Own React</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <a href="../../">Voltar ao menu</a>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="module" src="index.mjs"></script>
+    <script type="text/babel" data-type="module">
+      import { createElement, render } from "./index.mjs";
+
+      /* @jsx createElement */
+      const Hello = ({ name }) => <h1>Hello {name}</h1>;
+
+      /* @jsx createElement */
+      const App = <Hello name="Fulano" />;
+
+      render(App, document.getElementById("root"));
+    </script>
+  </body>
+</html>
