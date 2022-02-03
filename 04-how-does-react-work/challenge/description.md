@@ -9,8 +9,8 @@ Mas não é por isso que podemos deixar nossa implementação ainda melhor.
 ---
 
 1. Adicionando a API de estilos
-   s
-   A primeira coisa que vamos fazer é adicionar estilos aos nossos componentes.
+   
+A primeira coisa que vamos fazer é adicionar estilos aos nossos componentes.
 
 É claro que poderíamos apenas adicionar uma folha de estilos CSS e adicionar classes aos nossos componentes.
 

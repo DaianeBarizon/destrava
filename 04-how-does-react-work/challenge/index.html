@@ -4,6 +4,11 @@
     <title>Own React</title>
     <meta charset="UTF-8" />
   </head>
+  <style>
+    .hello {
+      color: blue;
+    }
+  </style>
 
   <body>
     <div id="root"></div>
@@ -14,7 +19,7 @@
       import { createElement, useState, render } from "./index.mjs";
 
       /* @jsx createElement */
-      const Hello = ({ name }) => {
+      const Hello = ({ name, style }) => {
         const [state, setState] = useState("hello");
 
         console.log("RENDER");
@@ -24,14 +29,14 @@
         }, 1000);
 
         return (
-          <h1>
+          <h1 className={style}>
             {name} {state}
           </h1>
         );
       };
 
       /* @jsx createElement */
-      const App = <Hello name="Fulano" />;
+      const App = <Hello name="Fulano" style="hello" />;
 
       render(App, document.getElementById("root"));
     </script>
