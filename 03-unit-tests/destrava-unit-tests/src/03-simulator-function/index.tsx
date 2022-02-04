@@ -12,8 +12,12 @@ const EXCHANGE_VALUES = {
 }
 
 export const simulateExchange = (value: number, currency: "USD" | "EUR") => {
-  return {
-    name: EXCHANGE_VALUES[currency].name,
-    ask: Number(value) * EXCHANGE_VALUES[currency].bid
+  if (currency in EXCHANGE_VALUES) {
+    return {
+      name: EXCHANGE_VALUES[currency].name,
+      ask: Number(value) * EXCHANGE_VALUES[currency].bid
+    }
+  } else {
+    throw new Error("currency not supported")
   }
 }

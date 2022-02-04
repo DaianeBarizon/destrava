@@ -28,7 +28,7 @@ export function Button(props: any) {
 
 export function Result({ value }: { value: number }) {
   return (
-    <h2 className="my-8 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl text-center">
+    <h2 data-testid="value" className="my-8 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl text-center">
       Quanto você vai precisar R$: {value || 0.0}
     </h2>
   );

@@ -1,4 +1,3 @@
-
 import '@testing-library/jest-dom'
 
 import { render, screen } from '@testing-library/react'
@@ -16,15 +15,18 @@ describe('Simulator', () => {
   it('should show correct result', () => {
     render(<Simulator />)
 
-    const button = screen.getByText(/simular/i)
-    const input = screen.getByRole('textbox')
-    const resultContainer = screen.getByLabelText('result')
-
     const mockValue = '3'
 
+    const input = screen.getByRole('textbox')
+
     userEvent.type(input, mockValue)
+
+    const button = screen.getByText(/simular/i)
+
     userEvent.click(button)
 
-    expect(resultContainer).toHaveTextContent(String(simulateExchange(Number(mockValue), 'USD').ask))
+    expect(screen.getByTestId('value')).toHaveTextContent(String(simulateExchange(Number(mockValue), 'USD').ask))
+
+    expect(screen.getByText('Quanto você vai precisar R$: 16.5')).toBeInTheDocument()
   })
 })

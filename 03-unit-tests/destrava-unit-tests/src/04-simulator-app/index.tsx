@@ -1,25 +1,24 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import { simulateExchange } from "../03-simulator-function";
-import { Button, Container, MoneyInput, Result } from "../ui";
+import { Button, Container, MoneyInput, Result } from '../ui'
+
+import { simulateExchange } from '../03-simulator-function'
 
 export function Simulator() {
-  const [result, setResult] = useState(0);
-  const [amount, setAmount] = useState(0);
+  const [result, setResult] = useState(0)
+  const [amount, setAmount] = useState(0)
 
-  const handle = () => {
-    const resultValue = simulateExchange(amount, "USD");
-
-    setResult(resultValue.ask);
-  };
+  const handleSimulate = () => {
+    return setResult((simulateExchange(amount, 'USD')).ask)
+  }
 
   return (
     <Container>
-      <MoneyInput value={amount} onChange={(event: any) => setAmount(event.target.value)} />
+      <MoneyInput onChange={(event) => setAmount(event.target.value)} />
 
-      <Button onClick={() => handle()} />
+      <Button onClick={() => handleSimulate()} />
 
       <Result value={result} />
     </Container>
-  );
+  )
 }
